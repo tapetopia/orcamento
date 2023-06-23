@@ -1,0 +1,53 @@
+<style>
+  .tapetopia-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+
+  .tapetopia-input {
+    margin-bottom: 10px;
+  }
+
+  .tapetopia-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .tapetopia-result {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>
+
+<div class="tapetopia-container">
+  <h2>Calculadora de Preço de Tapetes</h2>
+  <div class="tapetopia-input">
+    <label for="altura">Altura do Tapete (cm):</label>
+    <input type="number" id="altura">
+  </div>
+  <div class="tapetopia-input">
+    <label for="comprimento">Comprimento do Tapete (cm):</label>
+    <input type="number" id="comprimento">
+  </div>
+  <button class="tapetopia-button" onclick="calcularPreco()">Calcular</button>
+  <p class="tapetopia-result" id="preco"></p>
+</div>
+
+<script>
+  function calcularPreco() {
+    var altura = document.getElementById("altura").value / 100; // Converter de cm para metros
+    var comprimento = document.getElementById("comprimento").value / 100; // Converter de cm para metros
+    var precoMetroQuadrado = 800;
+    var frete = 100; // Valor fixo de frete de exemplo
+
+    var area = altura * comprimento;
+    var precoTotal = area * precoMetroQuadrado + frete;
+
+    document.getElementById("preco").innerHTML = "Preço Total: R$ " + precoTotal.toFixed(2);
+  }
+</script>
